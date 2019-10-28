@@ -4683,50 +4683,64 @@ S2.define('select2/dropdown/closeOnSelect',[
   return CloseOnSelect;
 });
 
-S2.define('select2/i18n/en',[],function () {
-  // English
+S2.define('select2/i18n/ru',[],function () {
+  // Russian
+  function ending (count, one, couple, more) {
+    if (count % 10 < 5 && count % 10 > 0 &&
+        count % 100 < 5 || count % 100 > 20) {
+      if (count % 10 > 1) {
+        return couple;
+      }
+    } else {
+      return more;
+    }
+
+    return one;
+  }
+
   return {
     errorLoading: function () {
-      return 'The results could not be loaded.';
+      return 'Невозможно загрузить результаты';
     },
     inputTooLong: function (args) {
       var overChars = args.input.length - args.maximum;
 
-      var message = 'Please delete ' + overChars + ' character';
+      var message = 'Пожалуйста, введите на ' + overChars + ' символ';
 
-      if (overChars != 1) {
-        message += 's';
-      }
+      message += ending(overChars, '', 'a', 'ов');
+
+      message += ' меньше';
 
       return message;
     },
     inputTooShort: function (args) {
       var remainingChars = args.minimum - args.input.length;
 
-      var message = 'Please enter ' + remainingChars + ' or more characters';
+      var message = 'Пожалуйста, введите ещё хотя бы ' + remainingChars +
+        ' символ';
+
+      message += ending(remainingChars, '', 'a', 'ов');
 
       return message;
     },
     loadingMore: function () {
-      return 'Loading more results…';
+      return 'Загрузка данных…';
     },
     maximumSelected: function (args) {
-      var message = 'You can only select ' + args.maximum + ' item';
+      var message = 'Вы можете выбрать не более ' + args.maximum + ' элемент';
 
-      if (args.maximum != 1) {
-        message += 's';
-      }
+      message += ending(args.maximum, '', 'a', 'ов');
 
       return message;
     },
     noResults: function () {
-      return 'No results found';
+      return 'Совпадений не найдено';
     },
     searching: function () {
-      return 'Searching…';
+      return 'Поиск…';
     },
     removeAllItems: function () {
-      return 'Remove all items';
+      return 'Удалить все элементы';
     }
   };
 });
@@ -4766,7 +4780,7 @@ S2.define('select2/defaults',[
   './dropdown/selectOnClose',
   './dropdown/closeOnSelect',
 
-  './i18n/en'
+  './i18n/ru'
 ], function ($, require,
 
              ResultsList,

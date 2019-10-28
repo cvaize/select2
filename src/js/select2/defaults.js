@@ -33,7 +33,7 @@ define([
   './dropdown/selectOnClose',
   './dropdown/closeOnSelect',
 
-  './i18n/en'
+  './i18n/ru'
 ], function ($, require,
 
              ResultsList,
