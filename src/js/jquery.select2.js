@@ -28,6 +28,13 @@ define([
         this.each(function () {
           var instance = Utils.GetData(this, 'select2');
 
+          if (instance == null && window.console && console.error) {
+            console.error(
+              'The select2(\'' + options + '\') method was called on an ' +
+              'element that is not using Select2.'
+            );
+          }
+
           ret = instance[options].apply(instance, args);
         });
 

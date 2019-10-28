@@ -1,4 +1,4 @@
-.select2-sn--multiple {
+.select2-selection--multiple {
   box-sizing: border-box;
 
   cursor: pointer;
@@ -9,7 +9,7 @@
   user-select: none;
   -webkit-user-select: none;
 
-  .select2-sn__rd {
+  .select2-selection__rendered {
     display: inline-block;
     overflow: hidden;
     padding-left: 8px;

@@ -13,11 +13,11 @@ define([
   SingleSelection.prototype.render = function () {
     var $selection = SingleSelection.__super__.render.call(this);
 
-    $selection.addClass('select2-sn--single');
+    $selection.addClass('select2-selection--single');
 
     $selection.html(
-      '<span class="select2-sn__rd"></span>' +
-      '<span class="select2-sn__arrow" role="presentation">' +
+      '<span class="select2-selection__rendered"></span>' +
+      '<span class="select2-selection__arrow" role="presentation">' +
         '<b role="presentation"></b>' +
       '</span>'
     );
@@ -30,9 +30,9 @@ define([
 
     SingleSelection.__super__.bind.apply(this, arguments);
 
-    var id = container.id + '-cr';
+    var id = container.id + '-container';
 
-    this.$selection.find('.select2-sn__rd')
+    this.$selection.find('.select2-selection__rendered')
       .attr('id', id)
       .attr('role', 'textbox')
       .attr('aria-readonly', 'true');
@@ -65,7 +65,7 @@ define([
   };
 
   SingleSelection.prototype.clear = function () {
-    var $rendered = this.$selection.find('.select2-sn__rd');
+    var $rendered = this.$selection.find('.select2-selection__rendered');
     $rendered.empty();
     $rendered.removeAttr('title'); // clear tooltip on empty
   };
@@ -89,7 +89,7 @@ define([
 
     var selection = data[0];
 
-    var $rendered = this.$selection.find('.select2-sn__rd');
+    var $rendered = this.$selection.find('.select2-selection__rendered');
     var formatted = this.display(selection, $rendered);
 
     $rendered.empty().append(formatted);

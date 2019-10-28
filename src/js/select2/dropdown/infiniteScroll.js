@@ -77,7 +77,7 @@ define([
   InfiniteScroll.prototype.createLoadingMore = function () {
     var $option = $(
       '<li ' +
-      'class="select2-rs__op select2-rs__op--load-more"' +
+      'class="select2-results__option select2-results__option--load-more"' +
       'role="option" aria-disabled="true"></li>'
     );
 

@@ -26,7 +26,7 @@ define([
   Search.prototype.bind = function (decorated, container, $container) {
     var self = this;
 
-    var resultsId = container.id + '-rs';
+    var resultsId = container.id + '-results';
 
     decorated.call(this, container, $container);
 

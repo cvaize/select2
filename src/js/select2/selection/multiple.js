@@ -12,10 +12,10 @@ define([
   MultipleSelection.prototype.render = function () {
     var $selection = MultipleSelection.__super__.render.call(this);
 
-    $selection.addClass('select2-sn--multiple');
+    $selection.addClass('select2-selection--multiple');
 
     $selection.html(
-      '<ul class="select2-sn__rd"></ul>'
+      '<ul class="select2-selection__rendered"></ul>'
     );
 
     return $selection;
@@ -34,7 +34,7 @@ define([
 
     this.$selection.on(
       'click',
-      '.select2-sn__choice__remove',
+      '.select2-selection__choice__remove',
       function (evt) {
         // Ignore the event if it is disabled
         if (self.options.get('disabled')) {
@@ -55,7 +55,7 @@ define([
   };
 
   MultipleSelection.prototype.clear = function () {
-    var $rendered = this.$selection.find('.select2-sn__rd');
+    var $rendered = this.$selection.find('.select2-selection__rendered');
     $rendered.empty();
     $rendered.removeAttr('title');
   };
@@ -69,8 +69,8 @@ define([
 
   MultipleSelection.prototype.selectionContainer = function () {
     var $container = $(
-      '<li class="select2-sn__choice">' +
-        '<span class="select2-sn__choice__remove" role="presentation">' +
+      '<li class="select2-selection__choice">' +
+        '<span class="select2-selection__choice__remove" role="presentation">' +
           '&times;' +
         '</span>' +
       '</li>'
@@ -107,7 +107,7 @@ define([
       $selections.push($selection);
     }
 
-    var $rendered = this.$selection.find('.select2-sn__rd');
+    var $rendered = this.$selection.find('.select2-selection__rendered');
 
     Utils.appendMany($rendered, $selections);
   };
