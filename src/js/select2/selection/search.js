@@ -29,7 +29,7 @@ define([
   Search.prototype.bind = function (decorated, container, $container) {
     var self = this;
 
-    var resultsId = container.id + '-results';
+    var resultsId = container.id + '-rs';
 
     decorated.call(this, container, $container);
 
@@ -86,7 +86,7 @@ define([
 
       if (key === KEYS.BACKSPACE && self.$search.val() === '') {
         var $previousChoice = self.$searchContainer
-          .prev('.select2-selection__choice');
+          .prev('.select2-sn__choice');
 
         if ($previousChoice.length > 0) {
           var item = Utils.GetData($previousChoice[0], 'data');
@@ -184,7 +184,7 @@ define([
 
     decorated.call(this, data);
 
-    this.$selection.find('.select2-selection__rendered')
+    this.$selection.find('.select2-sn__rd')
                    .append(this.$searchContainer);
 
     this.resizeSearch();
@@ -222,7 +222,7 @@ define([
     var width = '';
 
     if (this.$search.attr('placeholder') !== '') {
-      width = this.$selection.find('.select2-selection__rendered').width();
+      width = this.$selection.find('.select2-sn__rd').width();
     } else {
       var minimumWidth = this.$search.val().length + 1;
 

@@ -14,7 +14,7 @@ define([
 
   Results.prototype.render = function () {
     var $results = $(
-      '<ul class="select2-results__options" role="listbox"></ul>'
+      '<ul class="select2-rs__ops" role="listbox"></ul>'
     );
 
     if (this.options.get('multiple')) {
@@ -38,7 +38,7 @@ define([
 
     var $message = $(
       '<li role="alert" aria-live="assertive"' +
-      ' class="select2-results__option"></li>'
+      ' class="select2-rs__op"></li>'
     );
 
     var message = this.options.get('translations').get(params.message);
@@ -49,13 +49,13 @@ define([
       )
     );
 
-    $message[0].className += ' select2-results__message';
+    $message[0].className += ' select2-rs__message';
 
     this.$results.append($message);
   };
 
   Results.prototype.hideMessages = function () {
-    this.$results.find('.select2-results__message').remove();
+    this.$results.find('.select2-rs__message').remove();
   };
 
   Results.prototype.append = function (data) {
@@ -87,7 +87,7 @@ define([
   };
 
   Results.prototype.position = function ($results, $dropdown) {
-    var $resultsContainer = $dropdown.find('.select2-results');
+    var $resultsContainer = $dropdown.find('.select2-rs');
     $resultsContainer.append($results);
   };
 
@@ -99,7 +99,7 @@ define([
 
   Results.prototype.highlightFirstItem = function () {
     var $options = this.$results
-      .find('.select2-results__option[aria-selected]');
+      .find('.select2-rs__op[aria-selected]');
 
     var $selected = $options.filter('[aria-selected=true]');
 
@@ -125,7 +125,7 @@ define([
       });
 
       var $options = self.$results
-        .find('.select2-results__option[aria-selected]');
+        .find('.select2-rs__op[aria-selected]');
 
       $options.each(function () {
         var $option = $(this);
@@ -157,18 +157,18 @@ define([
       text: loadingMore(params)
     };
     var $loading = this.option(loading);
-    $loading.className += ' loading-results';
+    $loading.className += ' loading-rs';
 
     this.$results.prepend($loading);
   };
 
   Results.prototype.hideLoading = function () {
-    this.$results.find('.loading-results').remove();
+    this.$results.find('.loading-rs').remove();
   };
 
   Results.prototype.option = function (data) {
     var option = document.createElement('li');
-    option.className = 'select2-results__option';
+    option.className = 'select2-rs__op';
 
     var attrs = {
       'role': 'option',
@@ -213,7 +213,7 @@ define([
       var $option = $(option);
 
       var label = document.createElement('strong');
-      label.className = 'select2-results__group';
+      label.className = 'select2-rs__group';
 
       var $label = $(label);
       this.template(data, label);
@@ -229,7 +229,7 @@ define([
       }
 
       var $childrenContainer = $('<ul></ul>', {
-        'class': 'select2-results__options select2-results__options--nested'
+        'class': 'select2-rs__ops select2-rs__ops--nested'
       });
 
       $childrenContainer.append($children);
@@ -248,7 +248,7 @@ define([
   Results.prototype.bind = function (container, $container) {
     var self = this;
 
-    var id = container.id + '-results';
+    var id = container.id + '-rs';
 
     this.$results.attr('id', id);
 
@@ -409,7 +409,7 @@ define([
     });
 
     container.on('results:focus', function (params) {
-      params.element.addClass('select2-results__option--highlighted');
+      params.element.addClass('select2-rs__op--hd');
     });
 
     container.on('results:message', function (params) {
@@ -441,7 +441,7 @@ define([
       });
     }
 
-    this.$results.on('mouseup', '.select2-results__option[aria-selected]',
+    this.$results.on('mouseup', '.select2-rs__op[aria-selected]',
       function (evt) {
       var $this = $(this);
 
@@ -466,12 +466,12 @@ define([
       });
     });
 
-    this.$results.on('mouseenter', '.select2-results__option[aria-selected]',
+    this.$results.on('mouseenter', '.select2-rs__op[aria-selected]',
       function (evt) {
       var data = Utils.GetData(this, 'data');
 
       self.getHighlightedResults()
-          .removeClass('select2-results__option--highlighted');
+          .removeClass('select2-rs__op--hd');
 
       self.trigger('results:focus', {
         data: data,
@@ -482,7 +482,7 @@ define([
 
   Results.prototype.getHighlightedResults = function () {
     var $highlighted = this.$results
-    .find('.select2-results__option--highlighted');
+    .find('.select2-rs__op--hd');
 
     return $highlighted;
   };

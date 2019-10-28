@@ -22,8 +22,8 @@ define([
     var $placeholder = this.selectionContainer();
 
     $placeholder.html(this.display(placeholder));
-    $placeholder.addClass('select2-selection__placeholder')
-                .removeClass('select2-selection__choice');
+    $placeholder.addClass('select2-sn__placeholder')
+                .removeClass('select2-sn__choice');
 
     return $placeholder;
   };
@@ -42,7 +42,7 @@ define([
 
     var $placeholder = this.createPlaceholder(this.placeholder);
 
-    this.$selection.find('.select2-selection__rendered').append($placeholder);
+    this.$selection.find('.select2-sn__rd').append($placeholder);
   };
 
   return Placeholder;

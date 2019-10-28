@@ -284,23 +284,23 @@ define([
     var self = this;
 
     this.on('open', function () {
-      self.$container.addClass('select2-container--open');
+      self.$container.addClass('select2-cr--open');
     });
 
     this.on('close', function () {
-      self.$container.removeClass('select2-container--open');
+      self.$container.removeClass('select2-cr--open');
     });
 
     this.on('enable', function () {
-      self.$container.removeClass('select2-container--disabled');
+      self.$container.removeClass('select2-cr--disabled');
     });
 
     this.on('disable', function () {
-      self.$container.addClass('select2-container--disabled');
+      self.$container.addClass('select2-cr--disabled');
     });
 
     this.on('blur', function () {
-      self.$container.removeClass('select2-container--focus');
+      self.$container.removeClass('select2-cr--focus');
     });
 
     this.on('query', function (params) {
@@ -483,11 +483,11 @@ define([
   };
 
   Select2.prototype.isOpen = function () {
-    return this.$container.hasClass('select2-container--open');
+    return this.$container.hasClass('select2-cr--open');
   };
 
   Select2.prototype.hasFocus = function () {
-    return this.$container.hasClass('select2-container--focus');
+    return this.$container.hasClass('select2-cr--focus');
   };
 
   Select2.prototype.focus = function (data) {
@@ -496,18 +496,11 @@ define([
       return;
     }
 
-    this.$container.addClass('select2-container--focus');
+    this.$container.addClass('select2-cr--focus');
     this.trigger('focus', {});
   };
 
   Select2.prototype.enable = function (args) {
-    if (this.options.get('debug') && window.console && console.warn) {
-      console.warn(
-        'Select2: The `select2("enable")` method has been deprecated and will' +
-        ' be removed in later Select2 versions. Use $element.prop("disabled")' +
-        ' instead.'
-      );
-    }
 
     if (args == null || args.length === 0) {
       args = [true];
@@ -519,13 +512,6 @@ define([
   };
 
   Select2.prototype.data = function () {
-    if (this.options.get('debug') &&
-        arguments.length > 0 && window.console && console.warn) {
-      console.warn(
-        'Select2: Data can no longer be set using `select2("data")`. You ' +
-        'should consider setting the value instead using `$element.val()`.'
-      );
-    }
 
     var data = [];
 
@@ -537,12 +523,6 @@ define([
   };
 
   Select2.prototype.val = function (args) {
-    if (this.options.get('debug') && window.console && console.warn) {
-      console.warn(
-        'Select2: The `select2("val")` method has been deprecated and will be' +
-        ' removed in later Select2 versions. Use $element.val() instead.'
-      );
-    }
 
     if (args == null || args.length === 0) {
       return this.$element.val();
@@ -603,7 +583,7 @@ define([
 
   Select2.prototype.render = function () {
     var $container = $(
-      '<span class="select2 select2-container">' +
+      '<span class="select2 select2-cr">' +
         '<span class="selection"></span>' +
         '<span class="dropdown-wrapper" aria-hidden="true"></span>' +
       '</span>'
@@ -613,7 +593,7 @@ define([
 
     this.$container = $container;
 
-    this.$container.addClass('select2-container--' + this.options.get('theme'));
+    this.$container.addClass('select2-cr--' + this.options.get('theme'));
 
     Utils.StoreData($container[0], 'element', this.$element);
 

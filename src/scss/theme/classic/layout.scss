@@ -1,7 +1,7 @@
 @import "defaults";
 @import "../../mixins/gradients";
 
-.select2-container--classic {
+.select2-cr--classic {
   @import "single";
   @import "multiple";
 
@@ -24,20 +24,20 @@
     border: 1px solid transparent;
   }
 
-  .select2-dropdown--above {
+  .select2-dropdown--a {
     border-bottom: none;
   }
 
-  .select2-dropdown--below {
+  .select2-dropdown--b {
     border-top: none;
   }
 
-  .select2-results > .select2-results__options {
+  .select2-rs > .select2-rs__ops {
     max-height: $results-max-height;
     overflow-y: auto;
   }
 
-  .select2-results__option {
+  .select2-rs__op {
     &[role=group] {
       padding: 0;
     }
@@ -47,18 +47,18 @@
     }
   }
 
-  .select2-results__option--highlighted[aria-selected] {
+  .select2-rs__op--hd[aria-selected] {
     background-color: $results-choice-bg-hover-color;
     color: $results-choice-fg-hover-color;
   }
 
-  .select2-results__group {
+  .select2-rs__group {
     cursor: default;
     display: block;
     padding: 6px;
   }
 
-  &.select2-container--open .select2-dropdown {
+  &.select2-cr--open .select2-dropdown {
     border-color: $focus-border-color;
   }
 }

@@ -42,7 +42,7 @@ define([
     $dropdown.attr('class', $container.attr('class'));
 
     $dropdown.removeClass('select2');
-    $dropdown.addClass('select2-container--open');
+    $dropdown.addClass('select2-cr--open');
 
     $dropdown.css({
       position: 'absolute',
@@ -148,8 +148,8 @@ define([
   AttachBody.prototype._positionDropdown = function () {
     var $window = $(window);
 
-    var isCurrentlyAbove = this.$dropdown.hasClass('select2-dropdown--above');
-    var isCurrentlyBelow = this.$dropdown.hasClass('select2-dropdown--below');
+    var isCurrentlyAbove = this.$dropdown.hasClass('select2-dropdown--a');
+    var isCurrentlyBelow = this.$dropdown.hasClass('select2-dropdown--b');
 
     var newDirection = null;
 
@@ -219,11 +219,11 @@ define([
 
     if (newDirection != null) {
       this.$dropdown
-        .removeClass('select2-dropdown--below select2-dropdown--above')
+        .removeClass('select2-dropdown--b select2-dropdown--a')
         .addClass('select2-dropdown--' + newDirection);
       this.$container
-        .removeClass('select2-container--below select2-container--above')
-        .addClass('select2-container--' + newDirection);
+        .removeClass('select2-cr--b select2-cr--a')
+        .addClass('select2-cr--' + newDirection);
     }
 
     this.$dropdownContainer.css(css);

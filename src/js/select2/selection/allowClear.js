@@ -10,16 +10,7 @@ define([
 
     decorated.call(this, container, $container);
 
-    if (this.placeholder == null) {
-      if (this.options.get('debug') && window.console && console.error) {
-        console.error(
-          'Select2: The `allowClear` option should be used in combination ' +
-          'with the `placeholder` option.'
-        );
-      }
-    }
-
-    this.$selection.on('mousedown', '.select2-selection__clear',
+    this.$selection.on('mousedown', '.select2-sn__clear',
       function (evt) {
         self._handleClear(evt);
     });
@@ -35,7 +26,7 @@ define([
       return;
     }
 
-    var $clear = this.$selection.find('.select2-selection__clear');
+    var $clear = this.$selection.find('.select2-sn__clear');
 
     // Ignore the event if nothing has been selected
     if ($clear.length === 0) {
@@ -92,21 +83,21 @@ define([
   AllowClear.prototype.update = function (decorated, data) {
     decorated.call(this, data);
 
-    if (this.$selection.find('.select2-selection__placeholder').length > 0 ||
+    if (this.$selection.find('.select2-sn__placeholder').length > 0 ||
         data.length === 0) {
       return;
     }
 
-    var removeAll = this.options.get('translations').get('removeAllItems');   
+    var removeAll = this.options.get('translations').get('removeAllItems');
 
     var $remove = $(
-      '<span class="select2-selection__clear" title="' + removeAll() +'">' +
+      '<span class="select2-sn__clear" title="' + removeAll() +'">' +
         '&times;' +
       '</span>'
     );
     Utils.StoreData($remove[0], 'data', data);
 
-    this.$selection.find('.select2-selection__rendered').prepend($remove);
+    this.$selection.find('.select2-sn__rd').prepend($remove);
   };
 
   return AllowClear;

@@ -1,16 +1,16 @@
-.select2-container--default {
+.select2-cr--default {
   @import "single";
   @import "multiple";
 
-  &.select2-container--open.select2-container--above {
-    .select2-selection--single, .select2-selection--multiple {
+  &.select2-cr--open.select2-cr--a {
+    .select2-sn--single, .select2-sn--multiple {
       border-top-left-radius: 0;
       border-top-right-radius: 0;
     }
   }
 
-  &.select2-container--open.select2-container--below {
-    .select2-selection--single, .select2-selection--multiple {
+  &.select2-cr--open.select2-cr--b {
+    .select2-sn--single, .select2-sn--multiple {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
@@ -32,12 +32,12 @@
     }
   }
 
-  .select2-results > .select2-results__options {
+  .select2-rs > .select2-rs__ops {
     max-height: 200px;
     overflow-y: auto;
   }
 
-  .select2-results__option {
+  .select2-rs__op {
     &[role=group] {
       padding: 0;
     }
@@ -50,30 +50,30 @@
       background-color: #ddd;
     }
 
-    .select2-results__option {
+    .select2-rs__op {
       padding-left: 1em;
 
-      .select2-results__group {
+      .select2-rs__group {
         padding-left: 0;
       }
 
-      .select2-results__option {
+      .select2-rs__op {
         margin-left: -1em;
         padding-left: 2em;
 
-        .select2-results__option {
+        .select2-rs__op {
           margin-left: -2em;
           padding-left: 3em;
 
-          .select2-results__option {
+          .select2-rs__op {
             margin-left: -3em;
             padding-left: 4em;
 
-            .select2-results__option {
+            .select2-rs__op {
               margin-left: -4em;
               padding-left: 5em;
 
-              .select2-results__option {
+              .select2-rs__op {
                 margin-left: -5em;
                 padding-left: 6em;
               }
@@ -84,12 +84,12 @@
     }
   }
 
-  .select2-results__option--highlighted[aria-selected] {
+  .select2-rs__op--hd[aria-selected] {
     background-color: #5897fb;
     color: white;
   }
 
-  .select2-results__group {
+  .select2-rs__group {
     cursor: default;
     display: block;
     padding: 6px;

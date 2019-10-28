@@ -14,7 +14,7 @@ define([
 
   BaseSelection.prototype.render = function () {
     var $selection = $(
-      '<span class="select2-selection" role="combobox" ' +
+      '<span class="select2-sn" role="combobox" ' +
       ' aria-haspopup="true" aria-expanded="false">' +
       '</span>'
     );
@@ -39,7 +39,7 @@ define([
   BaseSelection.prototype.bind = function (container, $container) {
     var self = this;
 
-    var resultsId = container.id + '-results';
+    var resultsId = container.id + '-rs';
 
     this.container = container;
 
@@ -122,7 +122,7 @@ define([
 
       var $select = $target.closest('.select2');
 
-      var $all = $('.select2.select2-container--open');
+      var $all = $('.select2.select2-cr--open');
 
       $all.each(function () {
         if (this == $select[0]) {
